@@ -82,6 +82,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.11.9
     version: 18.11.10
+  '@types/wechat-miniprogram':
+    specifier: ^3.4.1
+    version: registry.npmmirror.com/@types/wechat-miniprogram@3.4.1
   '@uni-helper/uni-app-types':
     specifier: ^0.5.7
     version: 0.5.7(typescript@4.9.3)
@@ -6736,6 +6739,12 @@ packages:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/stack-utils/-/stack-utils-2.0.1.tgz}
     name: '@types/stack-utils'
     version: 2.0.1
+    dev: true
+
+  registry.npmmirror.com/@types/wechat-miniprogram@3.4.1:
+    resolution: {integrity: sha512-szbuYR32VotxNQNQ4YyQ6Ob3ya0tLY0zpf/xvi6DF8Oqb+0Y+5CL5BpxS+4wBSJvlu3VfSXhjxZ0ze1a3l16Pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/wechat-miniprogram/-/wechat-miniprogram-3.4.1.tgz}
+    name: '@types/wechat-miniprogram'
+    version: 3.4.1
     dev: true
 
   registry.npmmirror.com/@types/yargs-parser@21.0.0:
