@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import CustomNavbar from './componets/CustomNavbar.vue'
+import CustomNavbar from './components/CustomNavbar.vue'
 </script>
 
 <template>
-  <view class="index"><CustomNavbar />index</view>
+  <CustomNavbar />
+  <XtxSwiper />
+  <view class="index">index</view>
 </template>
 
 <style lang="scss">
