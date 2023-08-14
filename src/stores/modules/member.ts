@@ -25,8 +25,21 @@ export const useMemberStore = defineStore(
       clearProfile,
     }
   },
-  // TODO: 持久化
+  // TODO: 持久化  网页端
+  // {
+  //   persist: true,
+  // },
   {
-    persist: true,
+    persist: {
+      // 调整为兼容多端的API
+      storage: {
+        getItem(key) {
+          return uni.getStorageSync(key)
+        },
+        setItem(key, value) {
+          uni.setStorageSync(key, value)
+        },
+      },
+    },
   },
 )
