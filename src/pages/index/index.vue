@@ -6,8 +6,9 @@ import HotPanel from './components/HotPanel.vue'
 import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from '@/services/home'
 import { ref } from 'vue'
 import type { bannerItem, CategoryItem, HotItem } from '@/types/home'
-import type { XtxGuessInstance } from '@/types/components'
+
 import PageSkeleton from './components/PageSkeleton.vue'
+import { useGuessList } from '@/composables'
 
 const bannerList = ref<bannerItem[]>([])
 const getHomeBanner = async () => {
@@ -27,10 +28,12 @@ const getHomeHot = async () => {
   HotList.value = res.result
 }
 
-const guessRef = ref<XtxGuessInstance>()
-const onScrollTolower = () => {
-  guessRef.value?.getHomeGoods()
-}
+const { guessRef, onScrollTolower } = useGuessList()
+
+// const guessRef = ref<XtxGuessInstance>()
+// const onScrollTolower = () => {
+//   guessRef.value?.getHomeGoods()
+// }
 
 const isTriggered = ref(false)
 const onRefresherRefresh = async () => {

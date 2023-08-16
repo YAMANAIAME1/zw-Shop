@@ -1,3 +1,4 @@
+import type { GoodsItem } from '@/types/global'
 export type bannerItem = {
   id: string
   imgUrl: string
@@ -37,3 +38,5 @@ export type HotItem = {
    */
   type: string
 }
+
+export type GuessItem = GoodsItem
