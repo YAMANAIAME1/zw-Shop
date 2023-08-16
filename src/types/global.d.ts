@@ -37,3 +37,16 @@ export type GoodsItem = {
   /** 商品价格 */
   price: number
 }
+
+/** 地址信息 */
+export type AddressItem = {
+  receiver: string
+  contact: string
+  provinceCode: string
+  cityCode: string
+  countyCode: string
+  address: string
+  isDefault: number
+  id: string
+  fullLocation: string
+}
