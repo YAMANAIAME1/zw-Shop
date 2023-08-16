@@ -40,7 +40,7 @@ export default {
     init(options = {}) {},
     // 获取商品信息，并打开sku弹出
     openSkuPopup() {
-      let that = this
+      that = this
       /**
        * 获取商品信息
        * 这里可以看到每次打开SKU都会去重新请求商品信息,为的是每次打开SKU组件可以实时看到剩余库存
