@@ -12,6 +12,7 @@ import type { SkuPopupLocaldata } from '@/components/vk-data-goods-sku-popup/vk-
 import type { SkuPopupInstance } from '@/components/vk-data-goods-sku-popup/vk-data-goods-sku-popup'
 import { computed } from 'vue'
 import type { SkuPopupEvent } from '@/components/vk-data-goods-sku-popup/vk-data-goods-sku-popup'
+import { postMemberCartAPI } from '@/services/cart'
 // 商品id
 const props = defineProps<{
   id: string
@@ -82,7 +83,6 @@ const mode = ref<modeType>(modeType.Both)
 
 const openSkuPopup = (type: modeType) => {
   isShowSku.value = true
-
   mode.value = type
 }
 
@@ -95,6 +95,13 @@ const selectArrText = computed(() => {
 
 // sku数据集合
 const localdata = ref({} as SkuPopupLocaldata)
+
+// 加入购物车事件
+const onAddCart = async (e: SkuPopupEvent) => {
+  await postMemberCartAPI({ skuId: e._id, count: e.buy_num })
+  uni.showToast({ title: '添加成功', icon: 'success' })
+  isShowSku.value = false
+}
 </script>
 
 <template>
@@ -102,6 +109,7 @@ const localdata = ref({} as SkuPopupLocaldata)
     v-model="isShowSku"
     :localdata="localdata"
     :mode="mode"
+    @add-cart="onAddCart"
     add-cart-background-color="#FFA868"
     buy-now-background-color="#27BA9B"
     ref="skuPopupRef"
@@ -211,7 +219,7 @@ const localdata = ref({} as SkuPopupLocaldata)
       <button class="icons-button" open-type="contact">
         <text class="icon-handset"></text>客服
       </button>
-      <navigator class="icons-button" url="/pages/cart/cart" open-type="switchTab">
+      <navigator class="icons-button" url="/pages/cart/cart2">
         <text class="icon-cart"></text>购物车
       </navigator>
     </view>
