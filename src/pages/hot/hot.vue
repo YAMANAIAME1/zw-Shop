@@ -33,16 +33,15 @@ onLoad(() => {
   getHotRecommendData()
 })
 
+// 上拉加载
 const onScrollTolower = async () => {
   const curSubType = subTypes.value[activeIndex.value]
-
   if (curSubType.goodsItems.page < curSubType.goodsItems.pages) {
     curSubType.goodsItems.page++
   } else {
     curSubType.finish = true
     return uni.showToast({ icon: 'none', title: '没有更多数据了~' })
   }
-
   const res = await getHotRecommendAPI(currHotMap!.url, {
     subType: curSubType.id,
     page: curSubType.goodsItems.page,
